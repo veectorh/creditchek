@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import LandingPage from './pages/landingpage';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'DM sans, sans-serif',
+  },
+  palette: {
+    primary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#0046E6',
+      // dark: will be calculated from palette.primary.main,
+      // contrastText: will be calculated to contrast with palette.primary.main
+    },
+    secondary: {
+      // light: will be calculated from palette.primary.main,
+      main: '#FFFFFF',
+      // dark: will be calculated from palette.primary.main,
+      contrastText:  '#0046E6',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <LandingPage />
+      </div>
+    </ThemeProvider>
   );
 }
 
